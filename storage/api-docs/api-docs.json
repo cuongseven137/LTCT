@@ -1,0 +1,446 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Nhóm 06 API document",
+        "version": "2.0"
+    },
+    "paths": {
+        "api/product/{id}/comment": {
+            "get": {
+                "tags": [
+                    "comment"
+                ],
+                "summary": "get all comment",
+                "description": "Comment",
+                "operationId": "authLogin",
+                "requestBody": {
+                    "description": "Pass admin credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "ID": {
+                                        "type": "int",
+                                        "format": "#",
+                                        "example": "1"
+                                    },
+                                    "user_id": {
+                                        "type": "int",
+                                        "format": "user_id",
+                                        "example": "1"
+                                    },
+                                    "product_id": {
+                                        "type": "int",
+                                        "format": "product_id",
+                                        "example": "1"
+                                    },
+                                    "photo": {
+                                        "type": "string",
+                                        "example": "https://didongviet.vn/pub/media/catalog/product//a/p/apple-iphone-11-tim-didongviet_5.jpg"
+                                    },
+                                    "comment": {
+                                        "type": "text",
+                                        "example": "Sản phẩm rất đẹp"
+                                    },
+                                    "date": {
+                                        "type": "date",
+                                        "example": "2022/01/09"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Product not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "API key is missing."
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "comment"
+                ],
+                "summary": "create comment",
+                "description": "Comment",
+                "operationId": "authLogin",
+                "requestBody": {
+                    "description": "Pass admin credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "user_id": {
+                                        "type": "int",
+                                        "format": "user_id",
+                                        "example": "1"
+                                    },
+                                    "product_id": {
+                                        "type": "int",
+                                        "format": "product_id",
+                                        "example": "1"
+                                    },
+                                    "photo": {
+                                        "type": "string",
+                                        "example": "https://didongviet.vn/pub/media/catalog/product//a/p/apple-iphone-11-tim-didongviet_5.jpg"
+                                    },
+                                    "comment": {
+                                        "type": "text",
+                                        "example": "Sản phẩm rất đẹp"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "Success": {
+                                            "type": "string",
+                                            "example": "Send a comment successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "API key is missing."
+                    }
+                }
+            }
+        },
+        "api/comment/{id}": {
+            "delete": {
+                "tags": [
+                    "comment"
+                ],
+                "summary": "Delete a comment",
+                "description": "Delete a comment",
+                "operationId": "authLogin",
+                "requestBody": {
+                    "description": "Pass admin credentials",
+                    "required": true
+                },
+                "responses": {
+                    "202": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "Success": {
+                                            "type": "string",
+                                            "example": "Delete a comment successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "Error": {
+                                            "type": "string",
+                                            "example": "Comment not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "API key is missing."
+                    }
+                }
+            }
+        },
+        "api/feedbacks": {
+            "get": {
+                "tags": [
+                    "feedback"
+                ],
+                "summary": "get all feedback",
+                "description": "List feedback",
+                "operationId": "authLogin",
+                "requestBody": {
+                    "description": "Pass admin credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "int",
+                                        "format": "id",
+                                        "example": "1"
+                                    },
+                                    "user_id": {
+                                        "type": "int",
+                                        "format": "user_id",
+                                        "example": "1"
+                                    },
+                                    "content": {
+                                        "type": "text",
+                                        "example": "Giao hàng nhanh chóng"
+                                    },
+                                    "expired_date": {
+                                        "type": "expired_date",
+                                        "example": "2022/01/09"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "403": {
+                        "description": "API key is missing"
+                    }
+                }
+            }
+        },
+        "api/feedback": {
+            "post": {
+                "tags": [
+                    "feedback"
+                ],
+                "summary": "create feedback",
+                "description": "Feedback",
+                "operationId": "authLogin",
+                "requestBody": {
+                    "description": "Pass admin credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "user_id": {
+                                        "type": "int",
+                                        "format": "user_id",
+                                        "example": "1"
+                                    },
+                                    "content": {
+                                        "type": "text",
+                                        "example": "Giao hàng nhanh chóng"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "Success": {
+                                            "type": "string",
+                                            "example": "Send a feedback successfully"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "API key is missing"
+                    }
+                }
+            }
+        },
+        "api/feedback/{id}": {
+            "get": {
+                "tags": [
+                    "feedback"
+                ],
+                "summary": "Feedback",
+                "description": "Feedback",
+                "operationId": "authLogin",
+                "requestBody": {
+                    "description": "Pass admin credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "int",
+                                        "format": "id",
+                                        "example": "1"
+                                    },
+                                    "user_id": {
+                                        "type": "int",
+                                        "format": "user_id",
+                                        "example": "1"
+                                    },
+                                    "content": {
+                                        "type": "text",
+                                        "example": "Giao hàng nhanh chóng"
+                                    },
+                                    "expired_date": {
+                                        "type": "expired_date",
+                                        "example": "2022/01/09"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "404": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Feedback not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "API key is missing"
+                    }
+                }
+            }
+        },
+        "api/product/{id}/insurance": {
+            "get": {
+                "tags": [
+                    "insurance"
+                ],
+                "summary": "get a insurance",
+                "description": "get a insurance",
+                "operationId": "authLogin",
+                "requestBody": {
+                    "description": "Pass admin credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "ID": {
+                                        "type": "int",
+                                        "format": "#",
+                                        "example": "1"
+                                    },
+                                    "product_id": {
+                                        "type": "int",
+                                        "format": "product_id",
+                                        "example": "1"
+                                    },
+                                    "content": {
+                                        "type": "string",
+                                        "format": "content",
+                                        "example": "Bảo hành một đổi một trong vòng 1 tháng đầu sử dụng"
+                                    },
+                                    "start_date": {
+                                        "type": "date",
+                                        "example": "2022/01/01"
+                                    },
+                                    "expired_date": {
+                                        "type": "date",
+                                        "example": "2022/02/01"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "403": {
+                        "description": "API key is missing."
+                    },
+                    "404": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Product not found"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}
